@@ -1,17 +1,73 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Coffeebeans</title>
+    <title>CoffeeBeans Assignment</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application" %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <section class="hero is-primary">
+      <div class="hero-body">
+        <div class="container">
+          <p class="title">
+            CoffeeBeans Assignment
+          </p>
+          <p class="subtitle">
+            A simple web application to create events and send email notifications.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section is-medium">
+      <div class="container">
+
+        <% if notice.present? %>
+          <div class="columns">
+            <div class="column">
+              <div class="notification is-success is-light">
+                <button class="delete"></button>
+                <%= notice %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+        <% if alert.present? %>
+          <div class="columns">
+            <div class="column">
+              <div class="notification is-danger is-light">
+                <button class="delete"></button>
+                <%= alert %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+        <div class="columns is-centered">
+          <div class="column has-background-grey-lighter">
+            <div class="content is-normal">
+              <%= yield %>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          Submitted by <strong>Deepak Sharma</strong>. Backend built on Ruby on Rails.
+        </p>
+      </div>
+    </footer>
   </body>
 </html>
