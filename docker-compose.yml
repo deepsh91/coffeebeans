@@ -1,15 +1,14 @@
 version: "3"
 
 services:
-  rails:
+  app:
     build: .
     privileged: true
     volumes:
-      - ./:/rails
+      - ./:/app
       - bundle:/usr/local/bundle
     environment:
       - RAILS_ENV=development
-      - BUNDLE_PATH=/usr/local/bundle
     ports:
       - "3000:3000"
     depends_on:
