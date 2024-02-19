@@ -17,7 +17,7 @@ class HomeController < ApplicationController
       event = params[:event]
 
       if event == "a" || event == "b"
-        # TODO: Enqueue event job
+        EventCreationJob.perform_later({event: event, email: current_user.email})
 
         # Increment corresponding counter
         session[:event_counter][event] = session[:event_counter][event] + 1

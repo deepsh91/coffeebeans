@@ -20,11 +20,11 @@
 	<div class="columns content has-text-centered">
 		<div class="column">
 			<%= button_to "Generate Event A", generate_event_path, params: {event: "a"}, method: :post, remote: true, class: "button block is-info is-medium is-fullwidth" %>
-			<p>Event A counter: <%= @counter['a'] %></p>
+			<p>Event A counter: <%= @counter["a"] %></p>
 		</div>
 		<div class="column">
 			<%= button_to "Generate Event B", generate_event_path, params: {event: "b"}, method: :post, remote: true, class: "button block is-warning is-medium is-fullwidth"%>
-			<p>Event B counter: <%= @counter['b'] %></p>
+			<p>Event B counter: <%= @counter["b"] %></p>
 		</div>
 	</div>
 
