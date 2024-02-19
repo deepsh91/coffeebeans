@@ -22,17 +22,6 @@ module ExternalApi
 					}
 				end
 
-				def headers
-					{
-						'Content-Type' => 'application/json',
-						'Api-Key' => api_key	
-					}
-				end
-
-				def method
-					:post
-				end
-
 				def endpoint
 					ExternalApi::Iterable::Constant::Endpoint::EVENT
 				end

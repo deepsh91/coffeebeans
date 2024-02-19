@@ -14,7 +14,10 @@ module ExternalApi
 				end
 
 				def headers
-					# TODO: Add api key to header
+					{
+						'Content-Type' => 'application/json',
+						'Api-Key' => api_key
+					}
 				end
 
 				def base_url
@@ -24,48 +27,3 @@ module ExternalApi
 		end
 	end
 end
-
-
-### event
-
-# request
-# /api/events/track
-# {
-#   "email": "string",
-#   "userId": "string",
-#   "eventName": "string",
-#   "id": "string",
-#   "createdAt": 0,
-#   "dataFields": {},
-#   "campaignId": 0,
-#   "templateId": 0,
-#   "createNewFields": true
-# }
-
-# response body, code, headers
-# {
-#   "msg": "string",
-#   "code": "Success",
-#   "params": {}
-# }
-
-#### email
-
-# request
-# /api/email/target
-# {
-#   "campaignId": 0,
-#   "recipientEmail": "string",
-#   "recipientUserId": "string",
-#   "dataFields": {},
-#   "sendAt": "string",
-#   "allowRepeatMarketingSends": true,
-#   "metadata": {}
-# }
-
-# response body, code, headers
-# {
-#   "msg": "string",
-#   "code": "Success",
-#   "params": {}
-# }
