@@ -9,7 +9,7 @@ module ExternalApi
 				@response = nil
 			end
 
-			def fetch
+			def submit!
 				begin
 					resp = HTTParty.post(request.url, body: request.body.to_json, headers: request.headers)
 					@response = ExternalApi::Iterable::Response.new(resp: resp)
