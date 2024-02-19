@@ -23,6 +23,9 @@ gem 'devise', '~> 4.9', '>= 4.9.3'
 # Background jobs
 gem 'sidekiq'
 
+# HTTP requests
+gem 'httparty'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
