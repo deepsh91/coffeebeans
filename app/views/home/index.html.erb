@@ -1,7 +1,33 @@
-<% if user_signed_in? %> 
-	<h1>Hello CoffeeBeaners!</h1>
- 	<div> Welcome <%= current_user.email %> </div> 
-  	<%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
+<% if user_signed_in? %>
+  	<!-- Main container -->
+	<nav class="level">
+	  <!-- Left side -->
+	  <div class="level-left">
+	    <div class="level-item title is-4">
+	      Welcome <%= current_user.email %>
+	    </div>
+	  </div>
+
+	  <!-- Right side -->
+	  <div class="level-right">
+	    <p class="level-item">
+			<%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "button is-success"%>
+	    </p>
+	  </div>
+	</nav>
+
+
+	<div class="columns content has-text-centered">
+		<div class="column">
+			<%= button_to "Generate Event A", generate_event_path, params: {event: "a"}, method: :post, remote: true, class: "button block is-info is-medium is-fullwidth" %>
+			<p>Event A counter: <%= @counter['a'] %></p>
+		</div>
+		<div class="column">
+			<%= button_to "Generate Event B", generate_event_path, params: {event: "b"}, method: :post, remote: true, class: "button block is-warning is-medium is-fullwidth"%>
+			<p>Event B counter: <%= @counter['b'] %></p>
+		</div>
+	</div>
+
 <% else %>
   	<%= button_to "Sign in", new_user_session_path, method: :get %> 
 <% end %>
