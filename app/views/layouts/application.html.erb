@@ -31,7 +31,7 @@
           <div class="columns">
             <div class="column">
               <div class="notification is-success is-light">
-                <button class="delete"></button>
+                <button class="delete" onclick="this.parentElement.style.display='none'"></button>
                 <%= notice %>
               </div>
             </div>
@@ -42,7 +42,7 @@
           <div class="columns">
             <div class="column">
               <div class="notification is-danger is-light">
-                <button class="delete"></button>
+                <button class="delete" onclick="this.parentElement.style.display='none'"></button>
                 <%= alert %>
               </div>
             </div>
