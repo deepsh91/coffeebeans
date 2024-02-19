@@ -13,6 +13,7 @@ services:
       - "3000:3000"
     depends_on:
       - db
+      - sidekiq
 
   db:
     image: postgres:14.2-alpine
@@ -24,5 +25,22 @@ services:
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
 
+  sidekiq:
+    build: .
+    command: bundle exec sidekiq
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+      - redis
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis:/data
+
 volumes:
   bundle:
+  redis:

@@ -2,6 +2,9 @@ source "https://rubygems.org"
 
 ruby "3.2.2"
 
+# Manage env variables
+gem 'dotenv', require: 'dotenv/load'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3"
 
@@ -16,6 +19,9 @@ gem "puma", ">= 5.0"
 
 # User signup and authentication
 gem 'devise', '~> 4.9', '>= 4.9.3'
+
+# Background jobs
+gem 'sidekiq'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
