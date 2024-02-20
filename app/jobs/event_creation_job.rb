@@ -12,7 +12,7 @@ class EventCreationJob < ApplicationJob
     response = handler.submit!
 
     # If event created successfully, enqueue job to send email for every Event B 
-    if response.code == "Success"
+    if response&.code == "Success"
       EmailDeliveryJob.perform_later({email: user_email}) if event[:etype] == "b"
     end
   end
