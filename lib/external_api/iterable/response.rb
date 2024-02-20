@@ -42,7 +42,7 @@ module ExternalApi
 			private
 
 			def payload
-				JSON.parse(resp.body).deep_symbolize_keys
+				@payload ||= JSON.parse(resp.body).deep_symbolize_keys
 			end
 		end
 	end
