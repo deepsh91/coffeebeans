@@ -10,15 +10,15 @@ Application to generate events and send emails to users using Iterable [API](htt
 
 ### Docker Services
 This app utilises docker compose to run supporting services
-	- `postgres` for backend database
-	- `sidekiq` for background processing
-	- `redis` for sidekiq job store
+- `postgres` for backend database
+- `sidekiq` for background processing
+- `redis` for sidekiq job store
 
 ### Gem Dependencies
- 	- `devise` for user signup and login
- 	- `sidekiq` for background processing
- 	- `httparty` for API calls
- 	- `webmock` for API mocking
+- `devise` for user signup and login
+- `sidekiq` for background processing
+- `httparty` for API calls
+- `webmock` for API mocking
 
 ### Description
 1. User needs to sigup/login to be able to use the app
