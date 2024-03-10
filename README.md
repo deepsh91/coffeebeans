@@ -19,6 +19,7 @@ This app utilises docker compose to run supporting services
 - `sidekiq` for background processing
 - `httparty` for API calls
 - `webmock` for API mocking
+- `rspec` for testing
 
 ### Description
 1. User needs to sigup/login to be able to use the app
@@ -28,3 +29,6 @@ This app utilises docker compose to run supporting services
 	a. Each worker makes an API call to Iterable's [Event API](https://api.iterable.com/api/docs#events_track) and create a new event.
 	b. If Event B was generated, it further enqueues another job `EmailDeliveryJob` to send email notification using Iterable's [Email API](https://api.iterable.com/api/docs#email_target).
 5. All API requests to Iterable are mocked using Webmock. See [this](lib/external_api/iterable/mock.rb).
+
+### Testing Application
+- `RAILS_ENV=test bundle exec rspec`
