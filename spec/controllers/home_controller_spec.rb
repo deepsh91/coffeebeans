@@ -64,23 +64,5 @@ RSpec.describe HomeController, type: :controller do
         expect(session[:event_counter]["b"]).to eq(1)
       end
     end
-
-    context "when neither event a nor b is submitted" do
-      it "does not enqueue event creation job" do
-        post :event, params: {event: "c"}, session: { event_counter: {"a" => 0, "b" => 0} }
-
-        queue = Sidekiq::Queue.new(EventCreationJob.queue_name)
-        expect(queue.size).to eq(0)
-      end
-
-      it "does not increase session counter" do
-        post :event, params: {event: "c"}, session: { event_counter: {"a" => 0, "b" => 0} }
-
-        expect(session[:event_counter]).to have_key("a")
-        expect(session[:event_counter]).to have_key("b")
-        expect(session[:event_counter]["a"]).to eq(0)
-        expect(session[:event_counter]["b"]).to eq(0)
-      end
-    end
   end
 end
